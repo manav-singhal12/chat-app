@@ -6,7 +6,7 @@ const useListenMessages = () => {
     const { selectedConversation, addMessage } = useConversation();
 
     useEffect(() => {
-        const socket = io('http://localhost:5000');
+        const socket = io('https://chat-app-3-flwo.onrender.com');
 
         if (selectedConversation?._id) {
             socket.emit('joinRoom', selectedConversation._id);
