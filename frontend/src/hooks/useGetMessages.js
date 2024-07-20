@@ -19,7 +19,7 @@ const useGetMessages = () => {
             try {
                 const token = localStorage.getItem("token");
                 const response = await fetch(
-                    `https://chat-app-3-flwo.onrender.com/${selectedConversation._id}`,
+                    `https://chat-app-3-flwo.onrender.com/api/messages/${selectedConversation._id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
