@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import Users from '../../components/Users';
 import Messages from '../../components/Messages';
@@ -7,15 +7,21 @@ import MessageInput from '../../components/MessageInput';
 import useAuthContext from '../../context/AuthContext';
 import useConversation from '../../zustand/useConversation';
 import useGetConversations from '../../hooks/useGetConversation';
-
+import useNavigate from "react-router-dom";
 const Home = () => {
   const { loading, handleLogout } = useLogout();
   const { authUser } = useAuthContext();
   const [search, setSearch] = useState("");
 
+  const navigate=useNavigate();
+
   const { setSelectedConversation } = useConversation();
   const { conversations } = useGetConversations();
-
+useEffect=(()=>{
+  if(!localStorage.get("chat-user")){
+  navigate("/signup");
+  }
+})
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!search) return;
