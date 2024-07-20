@@ -7,7 +7,7 @@ import MessageInput from '../../components/MessageInput';
 import useAuthContext from '../../context/AuthContext';
 import useConversation from '../../zustand/useConversation';
 import useGetConversations from '../../hooks/useGetConversation';
-import useNavigate from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 const Home = () => {
   const { loading, handleLogout } = useLogout();
   const { authUser } = useAuthContext();
